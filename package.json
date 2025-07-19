@@ -6,10 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
     "preview": "vite preview",
     "pre-commit": "sh .husky/pre-commit",
-    "prepare": "husky"
+    "prepare": "husky",
+    "lint": "eslint src --ext .ts,.tsx",
+    "type-check": "tsc --noEmit",
+    "check": "npm run lint && npm run type-check"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
