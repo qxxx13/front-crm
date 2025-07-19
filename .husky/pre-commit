@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo "🚀 Running pre-commit checks..."
+
+# 1. Проверка ESLint и автоматическое исправление
+pnpm lint-staged
+
+# 2. Проверка типов TypeScript (опционально)
+if ! pnpm type-check; then
+  echo "❌ TypeScript errors found! Fix them before committing."
+  exit 1
+fi
+
+echo "✅ Pre-commit checks passed!"
+exit 0
